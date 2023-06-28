@@ -73,8 +73,8 @@ for each_movie in all_movies.find_all('div', class_="item"):
     """.format(movie_href, movie_name, movie_date, movie_type, movie_area, movie_lovers))
 file_obj.write("""
      </tbody>
-	 <a href="https://beian.miit.gov.cn/" target="_blank">蜀ICP备2022005602号</a>
 </table>
+<a href="https://beian.miit.gov.cn/" target="_blank">蜀ICP备2022005602号</a>
 </body>
 </html>
     """)
