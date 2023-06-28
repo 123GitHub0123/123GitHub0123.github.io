@@ -1,0 +1,36 @@
+name: 自动更新脚本
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 检出代码
+      uses: actions/checkout@v2
+      
+    - name: 设置Python环境
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.10'
+        
+    - name: 安装依赖
+      run: |
+        python -m pip install --upgrade pip
+        pip install beautifulsoup4
+        pip install requests
+        
+    - name: 运行脚本
+      run: python update.py
+      
+    - name: 提交更改
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add .
+        git commit -m "Auto update files"
+        git push
