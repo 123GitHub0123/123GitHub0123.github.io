@@ -32,11 +32,11 @@ file_obj.write("""
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>豆瓣电影即将上映影片信息</title>
+    <title>近期电影即将上映影片信息</title>
     <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<h2 class="text-center">豆瓣电影即将上映影片信息</h2>
+<h2 class="text-center">近期即将上映影片信息</h2>
 <table class="table table-striped table-hover mx-auto text-center">
     <thead>
         <tr>
