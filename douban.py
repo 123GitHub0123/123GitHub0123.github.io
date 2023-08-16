@@ -64,7 +64,7 @@ for each_movie in all_movies.find_all('div', class_="item"):
     #    movie_name,movie_href,movie_date,movie_type,movie_area,movie_lovers))
     file_obj.write("""
         <tr>
-            <td><a href="{}">{}</a></td>
+            <td><a onclick="window.open('{}', '_blank')">{}</a></td>
             <td>{}</td>
             <td>{}</td>
             <td>{}</td>
@@ -74,6 +74,19 @@ for each_movie in all_movies.find_all('div', class_="item"):
 file_obj.write("""
      </tbody>
 </table>
+	  <script>
+    // 获取所有的链接元素
+    const links = document.getElementsByTagName('a');
+
+    // 定义可用的颜色列表
+    const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
+
+    // 为每个链接设置随机颜色
+    for (let i = 0; i < links.length; i++) {
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      links[i].style.color = randomColor;
+    }
+  </script>
 <a href="https://beian.miit.gov.cn/" target="_blank">蜀ICP备2022005602号</a>
 </body>
 </html>
