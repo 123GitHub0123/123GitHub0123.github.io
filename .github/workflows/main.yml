@@ -2,7 +2,7 @@ name: 自动更新脚本
 
 on:
   schedule:
-    - cron: "0 8,12 * * *"
+    - cron: "0 8,14 * * *"
   push:
     branches:
       - main
