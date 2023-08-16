@@ -21,7 +21,7 @@ for each_movie in all_movies.find_all('div', class_="item"):
     movie_type = all_li_tag[1].text
     movie_area = all_li_tag[2].text
     movie_lovers = all_span_tag[0].text
-    print('电影名：{},电影链接：{},放映日期：{},电影类型：{},上映地区：{},想看的人数：{}'.format(
+    print('电影名：{},电影链接：{},放映日期：{},电影类型：{},首映地区：{},想看的人数：{}'.format(
         movie_name, movie_href, movie_date, movie_type, movie_area, movie_lovers))
 # 5.将获取的有用信息保存到一个html文件
 # python里面三个"围起来的字符会被看做是一整个字符串，避免了换行符的麻烦。
@@ -32,18 +32,18 @@ file_obj.write("""
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>豆瓣电影即将上映影片信息</title>
+    <title>近期电影即将上映影片信息</title>
     <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<h2 class="text-center">豆瓣电影即将上映影片信息</h2>
+<h2 class="text-center">近期即将上映影片信息</h2>
 <table class="table table-striped table-hover mx-auto text-center">
     <thead>
         <tr>
             <th>电影名</th>
             <th>放映日期</th>
             <th>电影类型</th>
-            <th>上映地区</th>
+            <th>首映地区</th>
             <th>关注者数量</th>
         </tr>
     </thead>
