@@ -40,7 +40,7 @@ file_obj.write("""
 <table class="table table-striped table-hover mx-auto text-center">
     <thead>
         <tr>
-            <th>电影名</th>
+            <th>电影名(点击了解影片)</th>
             <th>放映日期</th>
             <th>电影类型</th>
             <th>首映地区</th>
