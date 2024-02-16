@@ -29,26 +29,41 @@ for each_movie in all_movies.find_all('div', class_="item"):
 file_obj = open('index.html', 'w', encoding="utf-8")
 file_obj.write("""
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        /* 自定义样式，使链接看起来像普通文本 */
+        .info-link {
+            color: inherit; /* 继承父元素的文本颜色 */
+            text-decoration: none; /* 去除下划线 */
+        }
+
+        .info-link:hover, .info-link:focus {
+            color: inherit; /* 鼠标悬停或聚焦时颜色保持不变 */
+            text-decoration: none; /* 鼠标悬停或聚焦时去除下划线 */
+        }
+    </style>
     <title>近期电影即将上映影片信息</title>
-    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
 <h2 class="text-center">近期即将上映影片信息</h2>
-<table class="table table-striped table-hover mx-auto text-center">
-    <thead>
+<div class="table-responsive">
+    <table class="table table-striped table-hover mx-auto text-center">
+        <thead>
         <tr>
-            <th>电影名(点击了解影片)</th>
-            <th>放映日期</th>
-            <th>电影类型</th>
-            <th>首映地区</th>
-            <th>关注者数量</th>
+            <th scope="col">电影名(点击了解影片)</th>
+            <th scope="col">放映日期</th>
+            <th scope="col">电影类型</th>
+            <th scope="col">首映地区</th>
+            <th scope="col">关注者数量</th>
         </tr>
-    </thead>
-    <tbody>
+        </thead>
+        <tbody>
 """)
 for each_movie in all_movies.find_all('div', class_="item"):
     # print(each_movie)
@@ -73,9 +88,10 @@ for each_movie in all_movies.find_all('div', class_="item"):
         </tr>
     """.format(movie_href, movie_name, movie_date, movie_type, movie_area, movie_lovers))
 file_obj.write("""
-     </tbody>
-</table>
-	  <script>
+        </tbody>
+    </table>
+</div>
+<script>
     // 获取所有的链接元素
     const links = document.getElementsByTagName('a');
 
@@ -84,13 +100,19 @@ file_obj.write("""
 
     // 为每个链接设置随机颜色
     for (let i = 0; i < links.length; i++) {
-      const randomColor = colors[Math.floor(Math.random() * colors.length)];
-      links[i].style.color = randomColor;
+        links[i].style.color = colors[Math.floor(Math.random() * colors.length)];
     }
-  </script>
-<a href="https://beian.miit.gov.cn/" target="_blank">蜀ICP备2022005602号</a>
+</script>
+<div class="bg-light p-3">
+    <p><a class="info-link" href="https://beian.miit.gov.cn/" target="_blank"><span>蜀ICP备2022005602号</span></a>
+    </p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
 </body>
-</html>
-    """)
+</html>""")
 file_obj.close()
 print("finshed")
