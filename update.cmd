@@ -17,5 +17,5 @@ REM Appicon:
 REM AdministratorManifest: No
 REM  QBFC Project Options End
 @ECHO ON
-start cmd /c "python douban.py && git add * && git commit -m 'update' && git push"
+start cmd /c "python douban.py && git add * && git commit -m 'update_' && git push"
 
