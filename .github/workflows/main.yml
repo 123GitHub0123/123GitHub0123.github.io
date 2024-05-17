@@ -15,10 +15,10 @@ jobs:
 
     steps:
       - name: 检出代码
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: 设置Python环境
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
@@ -41,7 +41,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 构建和部署GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
